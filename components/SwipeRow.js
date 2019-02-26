@@ -111,6 +111,12 @@ class SwipeRow extends Component {
 			.start( _ => {
 				this.getPreviewAnimation(0, PREVIEW_CLOSE_DELAY).start();
 			});
+
+			let previewOpenSecondValue = this.props.previewOpenSecondValue || this.props.rightOpenValue * 0.5;
+			this.getPreviewAnimation(previewOpenSecondValue, this.props.previewOpenDelay)
+			.start( _ => {
+				this.getPreviewAnimation(0, PREVIEW_CLOSE_DELAY).start();
+			});
 		}
 	}
 
@@ -442,6 +448,11 @@ SwipeRow.propTypes = {
 	 * Default: 0.5 * props.rightOpenValue
 	 */
 	previewOpenValue: PropTypes.number,
+	/**
+	 * TranslateX value for the second slide out preview animation
+	 * Default: 0.5 * props.rightOpenValue
+	 */
+	previewOpenSecondValue: PropTypes.number,
 	/**
 	 * The dx value used to detect when a user has begun a swipe gesture
 	 */

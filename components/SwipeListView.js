@@ -175,6 +175,7 @@ class SwipeListView extends Component {
 					previewDuration={this.props.previewDuration}
 					previewOpenDelay={this.props.previewOpenDelay}
 					previewOpenValue={this.props.previewOpenValue}
+					previewOpenSecondValue={this.props.previewOpenSecondValue}
 					tension={this.props.tension}
 					friction={this.props.friction}
 					directionalDistanceChangeThreshold={this.props.directionalDistanceChangeThreshold}
@@ -397,6 +398,11 @@ SwipeListView.propTypes = {
 	 * Default: 0.5 * props.rightOpenValue
 	 */
 	previewOpenValue: PropTypes.number,
+	/**
+	 * TranslateX value for the second slide out preview animation
+	 * Default: 0.5 * props.rightOpenValue
+	 */
+	previewOpenSecondValue: PropTypes.number,
 	/**
 	 * Friction for the open / close animation
 	 */
