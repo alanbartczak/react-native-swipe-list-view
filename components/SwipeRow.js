@@ -108,16 +108,16 @@ class SwipeRow extends Component {
 		if (this.props.preview && !this.ranPreview) {
 			this.ranPreview = true;
 			let previewOpenValue = this.props.previewOpenValue || this.props.rightOpenValue * 0.5;
-			let previewOpenSecondValue = this.props.previewOpenSecondValue;
+			let previewOpenSecondValue = this.props.previewOpenSecondValue || this.props.rightOpenValue * 0.5;
 			
 			Animated.sequence([
 				this.getPreviewAnimation(previewOpenValue, this.props.previewOpenDelay)
 				.start( _ => {
-					this.getPreviewAnimation(0, PREVIEW_CLOSE_DELAY).start();
+					this.getPreviewAnimation(0, PREVIEW_CLOSE_DELAY);
 				}),
 				this.getPreviewAnimation(previewOpenSecondValue, this.props.previewOpenDelay)
 				.start( _ => {
-					this.getPreviewAnimation(0, SECOND_PREVIEW_CLOSE_DELAY).start();
+					this.getPreviewAnimation(0, SECOND_PREVIEW_CLOSE_DELAY);
 				})
 			]).start();
 		}
