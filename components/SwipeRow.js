@@ -16,7 +16,6 @@ import {
 
 const DEFAULT_PREVIEW_OPEN_DELAY = 700;
 const PREVIEW_CLOSE_DELAY = 300;
-const SECOND_PREVIEW_CLOSE_DELAY = 700;
 const MAX_VELOCITY_CONTRIBUTION = 5;
 const SCROLL_LOCK_MILLISECONDS = 300;
 
@@ -111,10 +110,10 @@ class SwipeRow extends Component {
 			let previewOpenSecondValue = this.props.previewOpenSecondValue || this.props.rightOpenValue * 0.5;
 			
 			Animated.sequence([
-				this.getPreviewAnimation(previewOpenValue, this.props.previewOpenDelay),
-				this.getPreviewAnimation(0, PREVIEW_CLOSE_DELAY),
-				this.getPreviewAnimation(previewOpenSecondValue, this.props.previewOpenDelay),
-				this.getPreviewAnimation(0, SECOND_PREVIEW_CLOSE_DELAY)
+				this.getPreviewAnimation(previewOpenValue, this.props.previewOpenDelay), // open first side
+				this.getPreviewAnimation(0, PREVIEW_CLOSE_DELAY), // close first side
+				this.getPreviewAnimation(previewOpenSecondValue, this.props.previewOpenDelay), // open second side
+				this.getPreviewAnimation(0, PREVIEW_CLOSE_DELAY) // close second side
 			]).start();
 		}
 	}
